@@ -25,41 +25,39 @@ public class GameData {
     
     public void playGame(){
             round=round+1;
-            testMatch(userNum); 
+            testMatch(); 
             
     }
-    public void testMatch(int userNum){
+    public void testMatch(){
         if(userNum==randomNum){
-            situation="επιτυχια";
+            situation="epitixia";
       }
         else{
             if (userNum>=randomNum){
-                situation="υψηλο";
+                situation="ipsilo";
                 sup=userNum-1;
                }
             else{
-                situation="χαμηλο";
+                situation="xamilo";
                 inf=userNum+1;
             }
     }
    }
-    public boolean answerNumError(String userAnswer){
+    public boolean numError( String userAnswer){
         
-        if (containsChar(userAnswer)) {                   //αν δεν περιεχει  char ειμαστε ενταξη να το μετατρεωουμε σε ιντ
-            this.userNum=Integer.parseInt(userAnswer);      
-            return (numBetweenLimits());                  //αν επιπλεον ο αριθμος ειναι αναμεσα στα ορια
+        if (Integer.parseInt(userAnswer)>=inf && Integer.parseInt(userAnswer)<=sup) {                   
+            userNum=Integer.parseInt(userAnswer);      
+            return true;   //δλδ σταματαει το !λοοπ              
             
         }
-        else return false;
+        else 
+            situation="sfalma";
+            return false;//δλδ δυνεχιζει το !λοοπ
     
     }
     
     
-       private boolean numBetweenLimits(){
-        
-        return (userNum>=inf && userNum<=sup);
-        
-    }
+       
         
      //ελεγχει αν ενα string περιεχει ενα char
     private boolean containsChar(String str){
@@ -75,29 +73,38 @@ public class GameData {
      }
     
     public boolean answerError(String str){
-        if (str.equals("ο")){
-            this.gameEnd=true;
-            return true;
-          }
-        else return str.equals("ν");
+       switch (str) {
+            case "oxi":
+                gameEnd=false;
+                return false;
+            case "nai":
+                return false;
+                
+            default:
+                return true;
+        }
     }
      
    
     
-    public String messege()
+    public void messege()
   {
       switch (situation)
     {
-      case "χαμηλο":
-      case "υψηλο":
-          return(userNum+"είναι"+situation+"Ξαναπροσπάθησε!Δώσε έναν αριθμό μεταξύ "+inf+"και"+sup);
-      case "επιτυχια":
-          return("Συγχαρητήρια! Βρήκες τον αριθμό μετά από"+round+"προσπάθειες! Σκορ:"+(10-round)+"Θα ήθελες να ξαναπαίξεις (ν/ο)?");
-      case "σφαλμα":
-          return ("Μη αποδεκτη απαντηση");
+      case "xamilo":
+      case "ipsilo":
+          System.out.println(userNum+" einai "+situation+" ksanad ose metaksi  "+inf+" kkaai "+sup);
+          break;
+      case "epitixia":
+          System.out.println("sinxaritiria brikes meta apo "+round+" prosp me skor: "+(10-round)+" sinexia ne i oxi");
+          break;
+      case "sfalma":
+          System.out.println(" mi apodekti apantisi ");
+           
       
       default:
-          return("Δώσε έναν αριθμό μεταξυ 0και 100");
+          System.out.println("dose metaksi  "+inf+" kkaai "+sup);
+          break;
      }
     }
 
