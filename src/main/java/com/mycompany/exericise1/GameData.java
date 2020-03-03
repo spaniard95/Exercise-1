@@ -44,8 +44,8 @@ public class GameData {
     }
    }
     public boolean numError( String userAnswer){
-        
-        if (Integer.parseInt(userAnswer)>=inf && Integer.parseInt(userAnswer)<=sup) {                   
+       
+        if (containsChar(userAnswer)&&Integer.parseInt(userAnswer)>=inf && Integer.parseInt(userAnswer)<=sup) {                   
             userNum=Integer.parseInt(userAnswer);      
             return true;   //δλδ σταματαει το !λοοπ              
             
@@ -53,6 +53,7 @@ public class GameData {
         else 
             situation="sfalma";
             return false;//δλδ δυνεχιζει το !λοοπ
+       
     
     }
     
@@ -69,7 +70,7 @@ public class GameData {
              }
          }
        }
-          return (containsError);
+          return (!containsError);
      }
     
     public boolean answerError(String str){
