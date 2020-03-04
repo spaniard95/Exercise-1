@@ -15,7 +15,7 @@ public class Exercise1 {
         String userAnswer;
        try (Scanner scan = new Scanner(System.in)){
             do{
-            game=new GameData(random.nextInt(101)+1);
+            game=new GameData(85);
              do{
                  do{
                  game.messege();
@@ -30,7 +30,7 @@ public class Exercise1 {
                userAnswer=scan.next();
            }while(game.answerError(userAnswer));
             
-          }while(game.isGameEnd());
+          }while(!game.isGameEnd());
             System.out.println("kali sinexia");
         }
     }

@@ -20,9 +20,7 @@ public class GameData {
         situation="";
         gameEnd=false;
       }
-    
-    
-    
+      
     public void playGame(){
             round=round+1;
             testMatch(); 
@@ -47,19 +45,16 @@ public class GameData {
        
         if (containsChar(userAnswer)&&Integer.parseInt(userAnswer)>=inf && Integer.parseInt(userAnswer)<=sup) {                   
             userNum=Integer.parseInt(userAnswer);      
-            return true;   //δλδ σταματαει το !λοοπ              
+            return true;            //δλδ σταματαει το !λοοπ δεν υπαρχει καποιο ερρορ           
             
         }
         else 
             situation="sfalma";
-            return false;//δλδ δυνεχιζει το !λοοπ
+            return false;           //δλδ το loop συνεχιζεται  αφου η απαντηση δεν ειναι αποδεκτη
        
     
     }
     
-    
-       
-        
      //ελεγχει αν ενα string περιεχει ενα char
     private boolean containsChar(String str){
          boolean containsError=false;
@@ -76,12 +71,13 @@ public class GameData {
     public boolean answerError(String str){
        switch (str) {
             case "oxi":
-                gameEnd=false;
+                gameEnd=true;
                 return false;
             case "nai":
                 return false;
                 
             default:
+                situation="error";
                 return true;
         }
     }
@@ -99,9 +95,12 @@ public class GameData {
       case "epitixia":
           System.out.println("sinxaritiria brikes meta apo "+round+" prosp me skor: "+(10-round)+" sinexia ne i oxi");
           break;
+      case "error":
+          System.out.println(" mi apodekti apantisi sinexia ne i oxi");
+           break;
+      
       case "sfalma":
           System.out.println(" mi apodekti apantisi ");
-           
       
       default:
           System.out.println("dose metaksi  "+inf+" kkaai "+sup);
