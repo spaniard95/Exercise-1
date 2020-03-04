@@ -4,14 +4,17 @@ package com.mycompany.exericise1;
 
 public class GameData {
    
-    private String userAnswer;
-    private final int randomNum;
+    
+    private int randomNum;
     private int userNum,round,inf,sup;
     private boolean gameEnd;
     private String situation;
    
    
     //constructor
+    
+   
+   
     public GameData(int randomNum){
         this.randomNum=randomNum;
         inf=0;
@@ -20,6 +23,14 @@ public class GameData {
         situation="";
         gameEnd=false;
       }
+    public GameData(){
+        inf=0;
+        sup=100;
+        round=0;
+        situation="";
+        gameEnd=false;
+    }
+
       
     public void playGame(){
             round=round+1;
