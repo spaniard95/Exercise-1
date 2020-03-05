@@ -27,6 +27,7 @@ public class GameData {
             
     }
     public void testMatch(){
+            
         if(userNum==randomNum){
             situation="epitixia";
       }
