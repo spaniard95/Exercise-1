@@ -52,8 +52,11 @@ public class GameData {
             }
     }
    }
-    public boolean numError( String userAnswer){
-       
+    public boolean answerError( String userAnswer){
+       if(situation.equals("epitixia")){
+           return (!questionError(userAnswer));
+       }
+       else{
         if (containsChar(userAnswer)&&Integer.parseInt(userAnswer)>=inf && Integer.parseInt(userAnswer)<=sup) {                   
             userNum=Integer.parseInt(userAnswer);      
             return true;            //δλδ σταματαει το !λοοπ δεν υπαρχει καποιο ερρορ           
@@ -62,8 +65,7 @@ public class GameData {
         else 
             situation="sfalma";
             return false;           //δλδ το loop συνεχιζεται  αφου η απαντηση δεν ειναι αποδεκτη
-       
-    
+        }
     }
     
      //ελεγχει αν ενα string περιεχει ενα char
@@ -79,12 +81,13 @@ public class GameData {
           return (!containsError);
      }
     
-    public boolean answerError(String str){
+    public boolean questionError(String str){
        switch (str) {
             case "oxi":
                 gameEnd=true;
                 return false;
             case "nai":
+                situation="";
                 return false;
                 
             default:

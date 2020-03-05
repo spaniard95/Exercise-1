@@ -6,9 +6,6 @@ import java.util.Scanner;
 
 public class Exercise1 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Random random = new Random();
         GameData game=new GameData();
@@ -17,12 +14,13 @@ public class Exercise1 {
          do{
           do{
              game.messege();
-             if (game.getSituation().equals("epitixia")||game.getSituation().equals("")) {
-              game=new GameData(85);
+             if (game.getSituation().equals("")){
+                 game=new GameData(85);
              }
-              userAnswer=scan.next(); //τρυ εδω
-             }while(!game.numError(userAnswer));    //οταν η εισοδος ειναι αποδεκτη δηλ ειναι ιντ και αναμεσα στα ορια θα βγει απο το λοοπ
-             
+             userAnswer=scan.next();
+            }while(!game.answerError(userAnswer));    //οταν η εισοδος ειναι αποδεκτη δηλ ειναι ιντ και αναμεσα στα ορια θα βγει απο το λοοπ
+             if(userAnswer.equals("oxi")) break;
+             else if(userAnswer.equals("nai")) continue;
           game.playGame();
            
          }while(!game.isGameEnd());
