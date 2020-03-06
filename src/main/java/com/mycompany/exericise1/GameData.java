@@ -98,27 +98,26 @@ public class GameData {
      
    
     
-    public void messege()
-  {
+    public String messege(){
       switch (situation)
     {
       case "xamilo":
       case "ipsilo":
-          System.out.println(userNum+" einai "+situation+" ksanad ose metaksi  "+inf+" kkaai "+sup);
-          break;
+          return(userNum+" einai "+situation+" ksanad ose metaksi  "+inf+" kkaai "+sup);
+          
       case "epitixia":
-          System.out.println("sinxaritiria brikes meta apo "+round+" prosp me skor: "+(10-round)+" sinexia ne i oxi");
-          break;
+          return("sinxaritiria brikes meta apo "+round+" prosp me skor: "+(10-round)+" sinexia ne i oxi");
+          
       case "error":
-          System.out.println(" mi apodekti apantisi sinexia ne i oxi");
-           break;
+          return(" mi apodekti apantisi sinexia ne i oxi");
+           
       
       case "sfalma":
-          System.out.println(" mi apodekti apantisi ");
+          return(" mi apodekti apantisi ");
       
       default:
-          System.out.println("dose metaksi  "+inf+" kkaai "+sup);
-          break;
+          return("dose metaksi  "+inf+" kkaai "+sup);
+          
      }
     }
 
