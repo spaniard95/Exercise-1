@@ -15,7 +15,7 @@ public class Exercise1 {
         String userAnswer;
        try (Scanner scan = new Scanner(System.in)){
             do{
-            game=new GameData(85);
+            game=new GameData(random.nextInt());
              do{
                  do{
                  game.messege();

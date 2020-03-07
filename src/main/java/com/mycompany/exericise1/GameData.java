@@ -4,7 +4,7 @@ package com.mycompany.exericise1;
 
 public class GameData {
    
-    private String userAnswer;
+   
     private final int randomNum;
     private int userNum,round,inf,sup;
     private boolean gameEnd;
