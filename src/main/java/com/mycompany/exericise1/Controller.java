@@ -1,28 +1,39 @@
 
 package com.mycompany.exericise1;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class Controller {
     
-    Window window;
-    Game game;
-    String userAnswer;
+    private Window theView;
+    private Game game;
+    
     
     
     //contructor
-    public Controller(){
-        this.window=new Window("Dose arithmo metaksi 0 kai 100");
-        
-        this.game=new Game();
-        
+    public Controller(Window theView,Game game){
+        this.theView=theView;
+        this.game=game;
+        this.theView.addGuessListener(new GuessListener());
     }
-    public int onSubmitNum(){
-        return Integer.parseInt(window.getUserAnswer());     
-
-    }
-    public void playGame(){
-        game.testMatch(onSubmitNum());
-        window=new Window(game.messege());
+    
+    class GuessListener implements ActionListener{
+        int userNum;
+        
+        public void actionPerformed(ActionEvent e){
+            try{
+                userNum=theView.getUserNum();
+                game.testMatch(userNum);
+                theView.setMessege(game.messege());
+            }
+            catch(NumberFormatException ex){
+                
+            }
+                
+          
+        }
     }
     
     

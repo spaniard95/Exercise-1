@@ -11,40 +11,31 @@ import javax.swing.JTextField;
 
 
 
-public class Window {
-   private JTextField text;
+public class Window extends JFrame {
+   private JTextField text=new JTextField(10);
    private String userAnswer;
+   private JButton playButton=new JButton("Play");
     
-   public Window(String str) {
-       JFrame frame=new JFrame("Guess");
-       frame.setVisible(true);
-       frame.setSize(200,200);
-       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       
-       JLabel label=new JLabel();
+   public Window() {
        JPanel panel=new JPanel();
-       
-       frame.add(panel);
-       panel.add(label);
-       
-       text=new JTextField(str);
+       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       this.setSize(600,200);
        panel.add(text);
-        frame.setVisible(true);
+       panel.add(playButton);
+       this.add(panel);
        
-       
-        text.addActionListener(new ActionListener() {
-            @Override
-			public void actionPerformed(ActionEvent event) {
-			     userAnswer=String.format(userAnswer, event.getActionCommand());
-  }
-                        
-	      });
-       
-       
-  }
-    public String getUserAnswer(){
-        return userAnswer;
     }
+    
+   public void setMessege(String messege){
+       text.setText(messege);
+   }
+   void addGuessListener(ActionListener listenForPlayButton){
+       playButton.addActionListener(listenForPlayButton);
+   } 
+   public int getUserNum(){
+    return Integer.parseInt(text.getText());
+
+}
 }
                 
 

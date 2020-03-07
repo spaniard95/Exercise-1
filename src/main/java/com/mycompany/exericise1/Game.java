@@ -30,42 +30,6 @@ public class Game {
     }
    }
 
-    public String getSituation() {
-        return situation;
-    }
-
-    public void setSituation(String situation) {
-        this.situation = situation;
-    }
-
-    public int getRandom() {
-        return random;
-        
-    }
-
-    public int getSup() {
-        return sup;
-    }
-
-    public void setSup(int sup) {
-        this.sup = sup;
-    }
-
-    public int getInf() {
-        return inf;
-    }
-
-    public void setInf(int inf) {
-        this.inf = inf;
-    }
-
-    public int getRound() {
-        return round;
-    }
-
-    public void setRound(int round) {
-        this.round = round;
-    }
     
     public String messege(){
       switch (situation)
