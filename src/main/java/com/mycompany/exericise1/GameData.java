@@ -93,6 +93,8 @@ public class GameData {
             default:
                 situation="error";
                 return true;
+                
+                
         }
     }
      

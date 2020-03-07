@@ -13,10 +13,11 @@ public class Exercise1 {
        try (Scanner scan = new Scanner(System.in)){
          do{
           do{
-             game.messege();
+             
              if (game.getSituation().equals("")){
                  game=new GameData(85);
              }
+             game.messege();
              userAnswer=scan.next();
             }while(!game.answerError(userAnswer));    //οταν η εισοδος ειναι αποδεκτη δηλ ειναι ιντ και αναμεσα στα ορια θα βγει απο το λοοπ
              if(userAnswer.equals("oxi")) break;
