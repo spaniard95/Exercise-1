@@ -12,13 +12,16 @@ public class Controller {
     //contructor
     public Controller(){
         this.window=new Window("Dose arithmo metaksi 0 kai 100");
-        window.setVisible(true);
+        
         this.game=new Game();
         
     }
-    
+    public int onSubmitNum(){
+        return Integer.parseInt(window.getUserAnswer());     
+
+    }
     public void playGame(){
-        game.testMatch(Integer.parseInt(window.getUserAnswer()));
+        game.testMatch(onSubmitNum());
         window=new Window(game.messege());
     }
     

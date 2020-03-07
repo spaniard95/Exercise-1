@@ -6,34 +6,37 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
 
-public class Window extends JFrame{
-   JTextField text;
+public class Window {
+   private JTextField text;
    private String userAnswer;
-    public Window(String str) {
-        super();
-        setTitle("Title");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        JLabel answer1 = new JLabel();		
-	answer1.setText(str);
-	answer1.setBounds(10, 10, 100, 100);
-        
-        JButton textField = new JButton();
-        //textField.setBounds(10, 110, 200, 100);
-        
-        
-        add(answer1);
-        add(textField);
-        
-        textField.addActionListener(new ActionListener() {
+    
+   public Window(String str) {
+       JFrame frame=new JFrame("Guess");
+       frame.setVisible(true);
+       frame.setSize(200,200);
+       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
+       JLabel label=new JLabel();
+       JPanel panel=new JPanel();
+       
+       frame.add(panel);
+       panel.add(label);
+       
+       text=new JTextField(str);
+       panel.add(text);
+        frame.setVisible(true);
+       
+       
+        text.addActionListener(new ActionListener() {
             @Override
 			public void actionPerformed(ActionEvent event) {
 			     userAnswer=String.format(userAnswer, event.getActionCommand());
-			}  
+  }
                         
 	      });
        
@@ -43,3 +46,5 @@ public class Window extends JFrame{
         return userAnswer;
     }
 }
+                
+
