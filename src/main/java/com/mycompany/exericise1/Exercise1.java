@@ -21,7 +21,9 @@ public class Exercise1 {
              userAnswer=scan.next();
             }while(!game.answerError(userAnswer));    //οταν η εισοδος ειναι αποδεκτη δηλ ειναι ιντ και αναμεσα στα ορια θα βγει απο το λοοπ
              if(userAnswer.equals("oxi")) break;
-             else if(userAnswer.equals("nai")) continue;
+             else if(userAnswer.equals("nai")){ 
+                 continue;
+             }
           game.playGame();
            
          }while(!game.isGameEnd());

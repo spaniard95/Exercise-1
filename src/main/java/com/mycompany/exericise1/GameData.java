@@ -12,9 +12,6 @@ public class GameData {
    
    
     //constructor
-    
-   
-   
     public GameData(int randomNum){
         this.randomNum=randomNum;
         inf=0;
@@ -53,7 +50,7 @@ public class GameData {
     }
    }
     public boolean answerError( String userAnswer){
-       if(situation.equals("epitixia")){
+       if(situation.equals("epitixia")||situation.equals("error")){
            return (!questionError(userAnswer));
        }
        else{
